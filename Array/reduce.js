@@ -27,3 +27,7 @@ function Min(arr = []) {
 }
 console.log(Max([1, 2, 3, 4]))
 console.log(Min([1, 2, 4, 5, 6]))
+
+if ([] == ![]) {
+  console.log('==')
+}
