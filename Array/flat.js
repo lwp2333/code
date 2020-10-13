@@ -11,7 +11,7 @@ console.log(str)
 const arrFlat = arr.flat(Infinity)
 // console.log(arrFlat)
 
-// 数组序列化加正则替换加分割
+// 2.数组序列化加正则替换加分割
 
 const arrFlat2Str = str.replace(/(\[|\])/g, '')
 
@@ -20,7 +20,7 @@ const arrFlat2 = arrFlat2Str.split(',').map(item => Number(item))
 const arrFlat3 = JSON.parse('[' + arrFlat2Str + ']')
 // console.log(arrFlat3)
 
-// 函数递归
+// 3.函数递归
 let result = []
 const flatFn = arr => {
   arr.forEach(item => {
@@ -34,7 +34,7 @@ const flatFn = arr => {
 flatFn(arr)
 // console.log(result)
 
-// 利用reduce 迭代
+// 4.利用reduce 迭代
 
 const flatReduce = arr => {
   return arr.reduce((pre, cur) => {
@@ -44,7 +44,7 @@ const flatReduce = arr => {
 
 // console.log(flatReduce(arr))
 
-// 扩展运算符
+// 4.扩展运算符
 console.log(arr)
 while (arr.some(Array.isArray)) {
   arr = [].concat(...arr)
