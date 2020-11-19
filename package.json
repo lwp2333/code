@@ -1,12 +1,13 @@
 {
-  "name": "proxyexpress",
+  "name": "code",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "1.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fs": "nodemon fs.js",
+    "express": "nodemon express.js"
   },
-  "author": "",
+  "author": "lwp2333",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
