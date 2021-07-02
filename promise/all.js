@@ -1,16 +1,17 @@
-const promisesAll = (promises) =>
-  new Promise(async (resolve, reject) => {
+const promisesAll = promises =>
+  new Promise((resolve, reject) => {
     const result = []
     let flagIndex = 0
     const len = promises.length
     for (let i in promises) {
-      promises[i].then(res => {
-        result[i] = res
-        flagIndex++
-        if (flagIndex === len) {
-          resolve(result)
-        }
-      })
+      Promise.resolve(promises[i])
+        .then(res => {
+          result[i] = res
+          flagIndex++
+          if (flagIndex === len) {
+            resolve(res)
+          }
+        })
         .catch(err => {
           reject(err)
         })
@@ -19,18 +20,25 @@ const promisesAll = (promises) =>
 
 const fn = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve('成功01')
-  }, 3000)
+    resolve('01-成功')
+  }, 1000)
 })
 
 const fn2 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject('失败02')
+    resolve('02-成功')
+  }, 2000)
+})
+
+const fn3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('03-成功')
   }, 3000)
 })
 
+const fn4 = '04-成功'
 const getAllData = async () => {
-  const res = await promisesAll([fn, fn2]).catch(err => {
+  const res = await promisesAll([fn, fn2, fn3, fn4]).catch(err => {
     console.log('err', err)
   })
   console.log(res)

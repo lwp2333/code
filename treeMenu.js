@@ -1,5 +1,3 @@
-const { json } = require('express')
-
 const menuList = [
   {
     id: '101',
