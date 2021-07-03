@@ -4,6 +4,7 @@
   "description": "",
   "main": "1.js",
   "scripts": {
+    "serve": "serve",
     "fs": "nodemon fs.js",
     "express": "nodemon express.js"
   },

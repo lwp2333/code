@@ -41,12 +41,3 @@ const flatReduce = arr => {
     return pre.concat(Array.isArray(cur) ? flatReduce(cur) : cur)
   }, [])
 }
-
-// console.log(flatReduce(arr))
-
-// 4.扩展运算符
-console.log(arr)
-while (arr.some(Array.isArray)) {
-  arr = [].concat(...arr)
-}
-console.log(arr)
