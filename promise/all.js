@@ -2,6 +2,9 @@ const promisesAll = promises =>
   new Promise((resolve, reject) => {
     const result = []
     let flagIndex = 0
+    if (!Array.isArray(promises)) {
+      throw new Error('argument must be an array')
+    }
     const len = promises.length
     for (let i in promises) {
       Promise.resolve(promises[i])
@@ -9,7 +12,7 @@ const promisesAll = promises =>
           result[i] = res
           flagIndex++
           if (flagIndex === len) {
-            resolve(res)
+            resolve(result)
           }
         })
         .catch(err => {
@@ -27,13 +30,13 @@ const fn = new Promise((resolve, reject) => {
 const fn2 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('02-成功')
-  }, 2000)
+  }, 800)
 })
 
 const fn3 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('03-成功')
-  }, 3000)
+  }, 600)
 })
 
 const fn4 = '04-成功'
